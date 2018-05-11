@@ -1,0 +1,64 @@
+html,body{height:100%; z-index: -10000}
+.carousel,.item,.active{height:100%;}
+.carousel-inner{height:100%;}
+
+.nav{
+max-height: 50px;
+z-index: 1;
+position: absolute;
+width: 100%;
+top: 0;
+}
+
+.nav li{
+padding-right: 3rem;
+}
+
+.nav a{
+color: #ffffff;
+padding: 1.5rem .5rem 0 .5rem;
+font-family: 'Josefin Slab', serif;
+font-size: 20px;
+}
+
+.carousel-item img{
+height: 100% !important;
+width: 100% !important;
+}
+
+.carousel-caption h5{
+font-family: 'Open Sans', sans-serif;
+font-size: 40px;
+}
+
+.carousel-caption p{
+font-family: 'Josefin Slab', serif;
+font-size: 30px;
+}
+
+.nav li a,
+.nav li a:after,
+.nav li a:before{
+transition: all .5s;
+}
+
+.nav li a:after {
+position: absolute;
+bottom: 0;
+left: 0;
+right: 0;
+margin: auto;
+width: 0%;
+content: '.';
+color: transparent;
+background: #ffffff;
+height: 1px;
+}
+
+.nav li a{
+position: relative;
+}
+
+.nav li a:hover:after {
+width: 100%;
+}

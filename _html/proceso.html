@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="../_js/jQuery/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap.css">
+    <script src="../Bootstrap/js/bootstrap.js"></script>
+    <link href="../_css/tech.css" rel="stylesheet" type="text/css">
+
+    <title>Reportes</title>
+  </head>
+
+  <body class="text-center">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-4 col-sm-5 col-md-4 col-lg-3 col-xl-2 nav-menu">
+          <div class="container-fluid tech-pi text">
+            <div class="technician row" id="tech-vue">
+              <div class="col-lg-5 tech-picture mx-auto" v-cloak>
+                <img v-bind:src="picture">
+              </div>
+              <div class="col-lg-7 tech-info text-left" v-cloak>
+                <span>Bienvenido,</span>
+                <h2>{{name}}</h2>
+              </div>
+            </div>
+          </div>
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a href="asignados.html">
+                <div class="row">
+                  <div class="col-sm-2 icon" style="padding-right: 0; padding-left: 2rem">
+                    <img src="../images/bug-white.png">
+                  </div>
+                  <div class="col-md-10 text">
+                    <p class="nav-link">Reportes Asignados</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item selected">
+              <a href="proceso.html">
+                <div class="row">
+                  <div class="col-sm-2 icon" style="padding-right: 0; padding-left: 2rem">
+                    <img src="../images/target-white.png">
+                  </div>
+                  <div class="col-md-10 text">
+                    <p class="nav-link">Reportes en Proceso</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="terminados.html">
+                <div class="row">
+                  <div class="col-sm-2 icon" style="padding-right: 0; padding-left: 2rem">
+                    <img src="../images/dead-white.png">
+                  </div>
+                  <div class="col-md-10 text">
+                    <p class="nav-link">Reportes Terminados</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+
+
+        <div class="col-8 col-sm-7 col-md-8 col-lg-9 col-xl-10 main">
+          <div class="container-fluid">
+            <div class="row header">
+              <div class="col-2 text-left menu-btn">
+                <button type="button"><img src="../images/menu-before.png"></button>
+              </div>
+              <div class="col-10 menu-options" id="tech-vue-2">
+                <div class="notifications" v-cloak>
+                  <img src="../images/notification.png">
+                </div>
+                <div class="menu-drop" v-cloak>
+                  <img v-bind:src="picture">
+                  <p style="display: inline-block;">{{name}}</p>  
+                </div>
+                <div class="options-drop">
+                  <ul class="nav flex-column">
+                    <li class="nav-item">
+                      <a class="nav-link" href="#">Soporte</a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="login.html">Cerrar Sesión <img src="../images/logout.png"></a>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            
+            <div class="row report-container" id="reports">
+              <div class="reports-title">
+                <h3>Reportes en Proceso</h3>
+              </div>
+              <!-- START REPORTS CARDS -->
+              <div class="col-sm-12 col-md-6 col-lg-4 col-xl-3 report-card" v-for="report in reports" v-cloak>
+                <div class="card process">
+                  <div class="card-header"></div>
+                  <div class="card-body">
+                    <h5 class="card-title">Reporte # <span>{{report.report_id}}</span></h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Lámpara: {{report.lamp}}</h6>
+                    <div class="left-col">
+                      <p><span>Generado:</span> {{report.origin}}</p>
+                      <p><span>Fecha:</span> {{report.date_failure}}</p>
+                    </div>
+                    <div class="right-col">
+                      <p><span>Colonia:</span> {{report.cuadrante}}</p>
+                      <p><span>Falla:</span> {{report.type_failure}}</p>
+                    </div>
+                    <p style="clear: both; font-size: 14px;"><span style="font-weight: bold; color: #4a5560;">Inicio de reparación:</span> {{report.repair_start_date}}</p>
+                    <div class="action-btn">
+                      <button type="button" class="btn btn-dark map-btn" data-toggle="modal" data-target="#mapModal" onclick="openMap(event)">Ubicación</button>
+                      <button type="button" class="btn proceso-btn" onclick="reportEnd(event)">Terminado</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+              <!-- END OF REPORTS CARDS -->
+
+              <!-- Modal -->
+              <div class="modal fade" id="mapModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">Ubicar Lámpara</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <div id="googleMap" style="width:100%;height:400px;"></div>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- End Modal -->
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="../_js/tech.js"></script>
+    <script src="../_js/proceso.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCEpbzTEF0Dd7YJX_EQUgMo0cnlyTUfoIA&callback=lampLocation"></script>
+  </body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="../_js/jQuery/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="../Bootstrap/css/bootstrap.css">
+    <script src="../Bootstrap/js/bootstrap.js"></script>
+    <link rel="stylesheet" type="text/css" href="../fonts/iconic/css/material-design-iconic-font.min.css">
+    <link href="../_css/login.css" rel="stylesheet" type="text/css">
+
+    <title>Iniciar Sesión</title>
+  </head>
+
+  <body class="text-center">
+    <form class="form-signin">
+
+      <div class="alert alert-danger alert-dismissible fade show" role="alert">
+        Usuario o contraseña incorrectos
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <h1 class="h3 mb-3 font-weight-normal title">Inicia Sesión</h1>
+
+      <div class="wrap-input100">
+          <input class="input100 input-username" type="text" name="user" placeholder="Teléfono" tabindex="1">
+          <span class="focus-input100" data-placeholder="&#xf207;"></span>
+      </div>
+
+      <div class="wrap-input100" >
+          <input class="input100 input-password" type="password" name="pass" placeholder="Contraseña" tabindex="2">
+          <span class="focus-input100" data-placeholder="&#xf191;"></span>
+      </div>
+
+      <div class="checkbox mb-3">
+        <label id="mostrar">
+          <input type="checkbox" id="show-pass"> Mostrar contraseña
+        </label>
+      </div>
+      <button class="btn btn-lg btn-light btn-block login-but" type="submit">Entrar</button>
+    </form>
+    <script src="../_js/login.js"></script>
+  </body>
+</html>

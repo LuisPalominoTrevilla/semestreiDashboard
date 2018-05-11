@@ -1,0 +1,273 @@
+html,
+body {
+  height: 100%;
+}
+
+/*--------NAVIGATION MENU----------------*/
+
+.nav-menu{
+  height: 100vh !important;
+  background-color: #2A3F54;
+  padding: 0;
+}
+
+.tech-pi{
+  padding: 1.5rem 0 1.5rem 0;
+}
+
+.tech-picture img{
+  width: 5rem;
+  border: 5px solid #fff;
+  border-radius: 100px;
+}
+
+.tech-info span{
+  font-size: 16px;
+  line-height: 30px;
+  color: #BAB8B8;
+}
+
+.tech-info h2{
+  font-size: 17px;
+  color: #ECF0F1;
+  font-weight: bold;
+}
+
+.nav-menu .selected{
+  background-color: rgba(255,255,255,.05);
+  border-right: 5px solid #1ABB9C;
+}
+
+.nav-menu li{
+  text-align: left;
+}
+
+.nav-item a{
+  text-decoration: none;
+}
+
+.nav-item .row{
+  padding: 1rem 0 1rem 0;
+}
+
+.nav-menu li img{
+  width: 2.5em;
+}
+
+.nav-menu li p{
+  color: #fff;
+  margin-bottom: 0;
+}
+
+/*--------------Header------------------*/
+
+.header{
+  background-color: #EDEDED;
+  height: 50px;
+  position: fixed;
+  top: 0;
+  z-index: 1000;
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.menu-btn button{
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  outline: none;
+  padding-top: 7px;
+}
+
+.menu-btn button img{
+  width: 1.8rem;
+  height: 1.6rem;
+}
+
+.notifications{
+  width: 5rem;
+  display: inline-block;
+  position: absolute;
+  right: 10rem;
+  height: 100%;
+  cursor: pointer;
+}
+
+.notifications:hover{
+  background-color: rgba(146, 164, 183, .3);
+}
+
+.notifications img{
+  width: 3rem;
+}
+
+.menu-drop{
+  margin: 0;
+  width: 10rem;
+  float: right;
+  cursor: pointer;
+  height: 50px;
+  padding-top: 7px;
+  padding-left: 0;
+}
+
+.menu-options{
+  padding-right: 0;
+}
+
+.menu-options .menu-drop img,
+.menu-options .options-drop img{
+  width: 2rem;
+  border-radius: 100px;
+}
+
+.menu-options p{
+  font-size: 16px;
+}
+
+.options-drop{
+  background-color: #fff;
+  position: fixed;
+  top: 50px;
+  display: none;
+  width: 10rem;
+  text-align: left;
+  border: 1px solid #e2e2e2;
+}
+
+.options-drop .nav-item:hover{
+  background-color: #e2e2e2;
+}
+
+.options-drop a{
+  color: #000;
+  font-size: 14px;
+}
+
+/*---------------MAIN-------------------*/
+
+.main{
+  max-height: 100vh;
+  overflow-y: scroll;
+  padding: 0;
+  background-color: #F7F7F7;
+}
+
+/*-------------REPORTS-------------------*/
+
+.report-container{
+  margin-top: 60px;
+  background-color: #fff;
+  color: #73879C;
+  margin-right: 10px;
+  margin-left: 10px;
+  padding: 10px 20px 10px 20px;
+  border-bottom: 1px solid #e2e2e2;
+  margin-bottom: 20px;
+}
+
+.reports-title{
+  width: 100%;
+  padding-bottom: 5px;
+  text-align: left;
+  border-bottom: 2px solid #E6E9ED;
+  margin-bottom: 20px;
+}
+
+.reports-title h3{
+  font-size: 18px;
+  font-weight: 450;
+}
+
+.report-card{
+  margin-bottom: 2rem;
+}
+
+.left-col{
+  width: 50%;
+  float: left;
+}
+
+.left-col p,
+.right-col p{
+  margin: 0;
+  font-size: 14px;
+}
+
+.left-col span,
+.right-col span{
+  font-weight: bold;
+  color: #4a5560;
+}
+
+.right-col{
+  width: 50%;
+  float: right;
+}
+
+.card-body p{
+  margin: 0;
+}
+
+/*------------Estilos botones tarjetas--------------------*/
+.action-btn{
+  padding-top: 1rem;
+  clear: both;
+}
+
+.action-btn .map-btn{
+  background-color: #73879C;
+  border: 1px solid #73879C;
+}
+.action-btn .map-btn:hover{
+  background-color: #4a5560;
+}
+.action-btn .map-btn:focus{
+  background-color: #4a5560;
+}
+
+.action-btn .proceso-btn{
+  background-color: #bc8912;
+  border: 1px solid #bc8912;
+  color: #fff;
+}
+.action-btn .proceso-btn:hover{
+  background-color: #89630b;
+}
+.action-btn .proceso-btn:focus{
+  background-color: #89630b;
+  box-shadow: 0 0 0 0.2rem rgba(137, 99, 11, .5);
+}
+
+.action-btn .asignado-btn{
+  background-color: #0e7a2d;
+  border: 1px solid #0e7a2d;
+  color: #fff;
+}
+.action-btn .asignado-btn:hover{
+  background-color: #074218;
+}
+.action-btn .asignado-btn:focus{
+  background-color: #074218;
+  box-shadow: 0 0 0 0.2rem rgba(7, 66, 24, .5);
+}
+
+/*----No mostrar hasta que vue renderee----*/
+[v-cloak] {
+  display: none;
+}
+
+
+
+
+/*---------------Card Headers Colors----------------*/
+.assigned .card-header{
+  background-color: #0e7a2d;
+}
+
+.process .card-header{
+  background-color: #bc8912;
+}
+
+.finished .card-header{
+  background-color: #b2200a;
+}
